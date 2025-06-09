@@ -14,5 +14,15 @@ Building an LLM-powered command-line program capable of reading, updating, and r
 3. Repeats step 2 until the task is complete (or it fails miserably, which is possible)
 
 #### Learning Goals
-Learn how LLMs and agentic coding tools work.
+Learn how LLMs and agentic coding tools work. <br>
 Practice Python and functional programming skills.
+
+#### Setup
+Create a virtual environment at the top level of the project. <br>
+```python3 -m venv venv```
+
+Activate the virtual environment. <br>
+```source venv/bin/activate```
+
+Install the requirements. <br>
+```pip install -r requirements.txt```
