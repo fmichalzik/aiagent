@@ -26,3 +26,8 @@ Activate the virtual environment. <br>
 
 Install the requirements. <br>
 ```pip install -r requirements.txt```
+
+#### Usage
+From the terminal, start the main script by passing the prompt as an argument ('--verbose' optional).
+Example:
+```python main.py "How do I build a calculator app?" --verbose```
