@@ -1,40 +1,24 @@
 import os
-import pathlib
 
 def get_files_info(working_directory, directory=None):
-
-    dir = pathlib.PurePath(directory)
-
-    # check if the directory argument is outside the working_directory
-    if not dir.is_relative_to(working_directory): # PurePath().is_relative() checks whether the path belongs to the other given path or not
+    abs_working_dir = os.path.abspath(working_directory)
+    target_dir = abs_working_dir
+    if directory:
+        target_dir = os.path.abspath(os.path.join(working_directory, directory))
+    if not target_dir.startswith(abs_working_dir):
         return f'Error: Cannot list "{directory}" as it is outside the permitted working directory'
-
-    # check if 'directory' actually is a directory
+    if not os.path.isdir(target_dir):
+        return f'Error: "{directory}" is not a directory'
     try:
-        if not os.path.isdir(dir): 
-            return f'Error: "{directory}" is not a directory'
-    except Exception as e:
-        return f"Error encountered: {e}"
-   
-    # helper function to print file infos
-    def file_info_to_string(name, size, is_dir):
-        return f"- {name}: file_size={size} bytes, is_dir={is_dir}"
-    
-    try: 
-        file_infos = [] # collects file_info for each content in directory
-        # lists the content in directory
-        directory_cotents = os.listdir(dir)
-        # iterating over content to collect file info
-        for content in directory_cotents:
-            path = dir.joinpath(content)
-            if os.path.isfile(path):
-                file_infos.append(file_info_to_string(content, os.path.getsize(path), False))
-            if os.path.isdir(path):
-                file_infos.append(file_info_to_string(content, os.path.getsize(path), True))
-
-        # join file_infos to one string with linebreaks
-        info_string = '\n'.join(file_infos)
-        # return info_string
-        return info_string
+        files_info = []
+        for filename in os.listdir(target_dir):
+            filepath = os.path.join(target_dir, filename)
+            file_size = 0
+            is_dir = os.path.isdir(filepath)
+            file_size = os.path.getsize(filepath)
+            files_info.append(
+                f"- {filename}: file_size={file_size} bytes, is_dir={is_dir}"
+            )
+        return "\n".join(files_info)
     except Exception as e:
         return f"Error listing files: {e}"
