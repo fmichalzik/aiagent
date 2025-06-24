@@ -36,3 +36,5 @@ Install the requirements. <br>
 From the terminal, start the main script by passing the prompt as an argument ('--verbose' optional).
 Example:
 ```python main.py "How do I build a calculator app?" --verbose```
+
+The scope (working directory) for the predefined functions can be set in the config file. Do not give an LLM broader access to you maschine!  
