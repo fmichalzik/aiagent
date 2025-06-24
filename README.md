@@ -1,7 +1,8 @@
 # aiagent
 A toy version of Claude Code using Google's free Gemini API!
 
-Building an LLM-powered command-line program capable of reading, updating, and running Python code using the Gemini API. Learn how LLMs and agentic coding tools work.
+Building an LLM-powered command-line program capable of reading, updating, and running Python code using the Gemini API. <br>
+Guided by the [Boot.dev course - Build an AI Agent in Python](https://www.boot.dev/courses/build-ai-agent-python), the goal is to learn how LLMs and agentic coding tools work.
 
 > [!CAUTION]  
 > Remember, it is a toy version of something like Cursor/Zed's Agentic Mode, or Claude Code.
