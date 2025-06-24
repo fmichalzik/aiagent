@@ -1,4 +1,5 @@
 import os
+from google.genai import types
 from config import MAX_CHARS
 
 
@@ -19,3 +20,19 @@ def get_file_content(working_directory, file_path):
         return content
     except Exception as e:
         return f'Error reading file "{file_path}": {e}'
+    
+# We can use types.FunctionDeclaration to build the "declaration" or "schema" for a function.
+# This basically just tells the LLM how to use the function. 
+schema_get_file_content = types.FunctionDeclaration(
+    name="get_file_content",
+    description="Returns the content of the specified file_path, truncated by the MAX_CHARS config.",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="The file_path to read the content from, relative to the working directory.",
+            ),
+        },
+    ),
+)
