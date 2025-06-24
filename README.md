@@ -3,6 +3,10 @@ A toy version of Claude Code using Google's free Gemini API!
 
 Building an LLM-powered command-line program capable of reading, updating, and running Python code using the Gemini API. Learn how LLMs and agentic coding tools work.
 
+#### !!!
+Remember, it is a toy version of something like Cursor/Zed's Agentic Mode, or Claude Code. Even their tools aren't perfectly secure, so be careful what you give it access to, and don't give this code away to anyone else to use.
+### !!!
+
 #### What Does the Agent Do?
 
 1. Accepts a coding task (e.g., "strings aren't splitting in my app, pweeze fix 🥺👉🏽👈🏽")
